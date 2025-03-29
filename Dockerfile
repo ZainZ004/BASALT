@@ -31,4 +31,4 @@ COPY . /app/
 EXPOSE 8888
 
 # Set entrypoint to run JupyterLab
-ENTRYPOINT ["/opt/conda/envs/BASALT/bin/jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+ENTRYPOINT [ "/bin/bash" ]
