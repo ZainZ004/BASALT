@@ -21,7 +21,6 @@ COPY basalt_env.yml .
 RUN conda env create -f basalt_env.yml \
     && conda update -n BASALT -c linbin203 basalt \
     && conda clean --all -f -y \
-    && conda run -n BASALT pip install jupyterlab \
     && conda run -n BASALT pip cache purge \
     && conda init bash \
     && echo "conda activate BASALT" >> ~/.bashrc
