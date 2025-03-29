@@ -2,10 +2,10 @@ name: Build and Publish Docker Image
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
     tags: ["v*.*.*"]
   pull_request:
-    branches: ["main"]
+    branches: ["master"]
   workflow_dispatch:
 
 env:
@@ -21,6 +21,13 @@ jobs:
       packages: write
 
     steps:
+      - name: Maximize build disk space
+        uses: easimon/maximize-build-space@v3
+        with:
+          swap-size: 4
+          remove-dotnet: 'true'
+          remove-android: 'true'
+
       - name: Checkout Repository
         uses: actions/checkout@v3
       
